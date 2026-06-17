@@ -13,6 +13,10 @@ function normalizeList(value) {
 }
 
 function scoreByPresence(items, maxScore, expectedCount) {
+  if (expectedCount <= 0) {
+    return 0;
+  }
+
   const boundedCount = Math.min(items.length, expectedCount);
   return Math.round((boundedCount / expectedCount) * maxScore);
 }

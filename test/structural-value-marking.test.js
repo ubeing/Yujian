@@ -76,6 +76,8 @@ test('StructuralValueMarkingSkill wraps calibration for CLI and integrations', (
 });
 
 test('CLI helpers validate JSON and print skill output', () => {
+  assert.deepEqual(parseInput(), {});
+  assert.deepEqual(parseInput(null), {});
   assert.throws(() => parseInput('{invalid'), /CLI 输入必须是合法 JSON:/);
 
   let output = '';
