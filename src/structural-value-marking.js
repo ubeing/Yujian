@@ -1,4 +1,5 @@
 const currentSpec = require('../current-spec/index.json');
+const SKILL_NAME = 'StructuralValueMarkingSkill';
 
 function normalizeList(value) {
   if (Array.isArray(value)) {
@@ -67,7 +68,7 @@ function calibrateStructuralValue(expression = {}, subjectContext = {}) {
 
   return {
     protocolVersion: currentSpec.version,
-    skillName: 'StructuralValueMarkingSkill',
+    skillName: SKILL_NAME,
     totalScore,
     dimensions,
     markers: {
@@ -84,7 +85,7 @@ function calibrateStructuralValue(expression = {}, subjectContext = {}) {
 
 class StructuralValueMarkingSkill {
   constructor(options = {}) {
-    this.name = 'StructuralValueMarkingSkill';
+    this.name = SKILL_NAME;
     this.version = options.version || '1.0.0';
     this.protocolVersion = currentSpec.version;
   }
