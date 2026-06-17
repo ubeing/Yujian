@@ -26,8 +26,9 @@ function calibrateStructuralValue(expression = {}, subjectContext = {}) {
   const openQuestions = normalizeList(expression.openQuestions);
   const relations = normalizeList(subjectContext.relations);
   const goals = normalizeList(subjectContext.goals);
-  const permissions = normalizeList(subjectContext.ownership && subjectContext.ownership.permissions);
-  const trace = normalizeList(subjectContext.ownership && subjectContext.ownership.trace);
+  const ownership = subjectContext.ownership || {};
+  const permissions = normalizeList(ownership.permissions);
+  const trace = normalizeList(ownership.trace);
 
   const dimensions = {
     expressionStructure: Math.min(
@@ -52,7 +53,7 @@ function calibrateStructuralValue(expression = {}, subjectContext = {}) {
     ),
     ownershipIntegrity: Math.min(
       25,
-      (subjectContext.ownership && subjectContext.ownership.owner ? 10 : 0) +
+      (ownership.owner ? 10 : 0) +
         scoreByPresence(permissions, 8, 2) +
         scoreByPresence(trace, 7, 2)
     )
@@ -72,7 +73,7 @@ function calibrateStructuralValue(expression = {}, subjectContext = {}) {
       goalCount: goals.length,
       claimCount: claims.length,
       openQuestionCount: openQuestions.length,
-      ownershipPresent: Boolean(subjectContext.ownership && subjectContext.ownership.owner)
+      ownershipPresent: Boolean(ownership.owner)
     }
   };
 }

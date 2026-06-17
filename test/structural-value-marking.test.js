@@ -6,6 +6,7 @@ const {
   StructuralValueMarkingSkill,
   calibrateStructuralValue
 } = require('../src');
+const { main, parseInput } = require('../src/cli');
 
 test('current-spec declares required repository roles and protocol blueprints', () => {
   assert.equal(currentSpec.version, 'current-spec@1.0.0');
@@ -72,4 +73,27 @@ test('StructuralValueMarkingSkill wraps calibration for CLI and integrations', (
   assert.equal(result.protocolVersion, currentSpec.version);
   assert.equal(result.calibration.skillName, 'StructuralValueMarkingSkill');
   assert.equal(result.calibration.totalScore, 31);
+});
+
+test('CLI helpers validate JSON and print skill output', () => {
+  assert.throws(() => parseInput('{invalid'), /CLI 输入必须是合法 JSON:/);
+
+  let output = '';
+  const originalWrite = process.stdout.write;
+  process.stdout.write = (chunk) => {
+    output += chunk;
+    return true;
+  };
+
+  try {
+    main([
+      '{"expression":{"statement":"信息表达"},"subjectContext":{"subjectId":"subject-003","scene":"cli","goals":["验证"]}}'
+    ]);
+  } finally {
+    process.stdout.write = originalWrite;
+  }
+
+  const parsed = JSON.parse(output);
+  assert.equal(parsed.calibration.skillName, 'StructuralValueMarkingSkill');
+  assert.equal(parsed.protocolVersion, currentSpec.version);
 });

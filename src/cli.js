@@ -10,7 +10,7 @@ function parseInput(raw) {
   try {
     return JSON.parse(raw);
   } catch (error) {
-    throw new Error('CLI 输入必须是合法 JSON。');
+    throw new Error(`CLI 输入必须是合法 JSON: ${error.message}`);
   }
 }
 
@@ -32,5 +32,6 @@ if (require.main === module) {
 }
 
 module.exports = {
-  main
+  main,
+  parseInput
 };
