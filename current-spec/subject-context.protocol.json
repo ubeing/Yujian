@@ -1,0 +1,19 @@
+{
+  "name": "SubjectContext Protocol",
+  "kind": "current-spec",
+  "required": [
+    "subjectId",
+    "scene",
+    "goals"
+  ],
+  "optional": [
+    "relations",
+    "ownership",
+    "constraints"
+  ],
+  "semantics": {
+    "subjectId": "Identity anchor of the acting social subject.",
+    "scene": "Current situation in which the expression is produced or consumed.",
+    "goals": "Value objectives to be preserved by the Skill."
+  }
+}

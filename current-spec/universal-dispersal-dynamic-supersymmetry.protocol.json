@@ -1,0 +1,14 @@
+{
+  "name": "Universal Dispersal and Dynamic Supersymmetry Protocol",
+  "kind": "current-spec",
+  "required": [
+    "dispersionVectors",
+    "symmetryPairs",
+    "stabilityRule"
+  ],
+  "semantics": {
+    "dispersionVectors": "How information spreads across subjects, contexts, and representations.",
+    "symmetryPairs": "Balanced correspondences preserved while information moves.",
+    "stabilityRule": "Condition that keeps information transfer interpretable."
+  }
+}

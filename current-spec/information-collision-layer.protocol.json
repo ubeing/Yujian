@@ -1,0 +1,14 @@
+{
+  "name": "Information Collision Layer Protocol",
+  "kind": "current-spec",
+  "required": [
+    "claims",
+    "evidence",
+    "openQuestions"
+  ],
+  "semantics": {
+    "claims": "Statements entering collision or comparison.",
+    "evidence": "Support material that grounds the collision.",
+    "openQuestions": "Unresolved tensions exposed by the collision."
+  }
+}
