@@ -1,0 +1,19 @@
+{
+  "version": "current-spec@1.0.0",
+  "repositoryRoles": [
+    "structural-value-calibration-layer",
+    "protocol-blueprint-repository",
+    "runnable-skill-reference-implementation"
+  ],
+  "protocols": {
+    "skill": "./skill.protocol.json",
+    "subjectContext": "./subject-context.protocol.json",
+    "universalDispersalAndDynamicSupersymmetry": "./universal-dispersal-dynamic-supersymmetry.protocol.json",
+    "informationCollisionLayer": "./information-collision-layer.protocol.json",
+    "ownershipInterface": "./ownership-interface.protocol.json"
+  },
+  "referenceImplementation": {
+    "skill": "StructuralValueMarkingSkill",
+    "cli": "node src/cli.js"
+  }
+}

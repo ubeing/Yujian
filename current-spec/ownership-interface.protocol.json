@@ -1,0 +1,14 @@
+{
+  "name": "Ownership Interface Protocol",
+  "kind": "current-spec",
+  "required": [
+    "owner",
+    "permissions",
+    "trace"
+  ],
+  "semantics": {
+    "owner": "Entity that holds authority over the expression.",
+    "permissions": "Allowed use and propagation boundaries.",
+    "trace": "Provenance information required for accountability."
+  }
+}

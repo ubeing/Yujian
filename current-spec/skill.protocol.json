@@ -1,0 +1,19 @@
+{
+  "name": "Skill Protocol",
+  "kind": "current-spec",
+  "required": [
+    "name",
+    "version",
+    "input",
+    "output",
+    "run"
+  ],
+  "input": {
+    "expression": "Information expression to be structurally evaluated.",
+    "subjectContext": "Execution context rooted in the social subject."
+  },
+  "output": {
+    "calibration": "Regression-friendly structural value calibration result.",
+    "protocolVersion": "current-spec version used by the Skill."
+  }
+}
